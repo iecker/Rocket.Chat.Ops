@@ -148,6 +148,6 @@ module.exports = (robot) ->
 	robot.respond /nova-issue (.*)/i, (res) ->
 		projId = encodeURIComponent(res.message.room.replace('__', '/'))
 		description = res.match[1] 
-		title = description.substring(0,20)
+		title = description.substring(0, 20)
 		gitlab.issues.create projId, {title: title, description: description}, (issue) ->
 			res.send "Issue criada com o numero " + issue.iid + "."
